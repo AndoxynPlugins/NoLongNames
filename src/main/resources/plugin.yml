@@ -3,3 +3,8 @@ main: net.daboross.bukkitdev.nolongnames.NoLongNames
 version: 1.0
 author: Dabo Ross
 description: Stops long names
+commands:
+  reloadnln:
+    description: Reloads NoLongName's config
+    usage: /<command>
+    permission: nolongnames.reload
