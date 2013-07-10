@@ -15,11 +15,9 @@ Configuration
 =============
 config.yml contains two values:
 * maxnamelength:
-* 
-* Description: kick players who have names longer than this length.
-* Type: Integer
+ * Description: kick players who have names longer than this length.
+ * Type: Integer
 
 * kickmessage:
-* 
-* Description: Message to display when kicking players.
-* Type: String
+ * Description: Message to display when kicking players.
+ * Type: String
