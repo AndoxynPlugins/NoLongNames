@@ -1,6 +1,6 @@
 name: NoLongNames
 main: net.daboross.bukkitdev.nolongnames.NoLongNames
-version: 1.2
+version: 1.0.0
 author: Dabo Ross
 description: Stops long names
 commands:
