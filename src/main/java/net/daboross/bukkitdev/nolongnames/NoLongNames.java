@@ -21,9 +21,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class NoLongNames extends JavaPlugin implements Listener {
 
     private int maxNameLength;
+    private String kickMessage;
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(this, this);
     }
@@ -35,13 +37,16 @@ public class NoLongNames extends JavaPlugin implements Listener {
     private void reload() {
         reloadConfig();
         maxNameLength = getConfig().getInt("maxnamelength");
+        kickMessage = getConfig().getString("kickmessage");
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("reloadnln")) {
             reload();
-            sender.sendMessage("NoLongName's config has been reloaded. Disallowing names longer than " + maxNameLength + " characters.");
+            sender.sendMessage("NoLongName's config has been reloaded.");
+            sender.sendMessage("Will kick players with names longer than " + maxNameLength + " characters with kick message:");
+            sender.sendMessage("'" + kickMessage + "'");
         } else {
             sender.sendMessage("NoLongNames doesn't know about the command /" + cmd);
         }
@@ -51,7 +56,7 @@ public class NoLongNames extends JavaPlugin implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerJoin(PlayerJoinEvent pje) {
         if (pje.getPlayer().getName().length() > maxNameLength) {
-            pje.getPlayer().kickPlayer("Your username is too long!");
+            pje.getPlayer().kickPlayer(kickMessage);
         }
     }
 }
