@@ -11,7 +11,7 @@ Commands
 
 Permissions
 ===========
-* nolongnames.reload - Allows the user of /reloadnln
+* nolongnames.reload - Allows the use of /reloadnln
 
 Configuration
 =============
