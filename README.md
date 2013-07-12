@@ -1,5 +1,6 @@
 NoLongNames - Bukkit plugin request
 =========================
+
 Features
 ========
 * Kicks all players on join who have a username that is longer than a specified length.
